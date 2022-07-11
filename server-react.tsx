@@ -6,11 +6,14 @@ import ReactDOMServer from "https://dev.jspm.io/react-dom/server.js";
 import { createApp } from "https://deno.land/x/servest@v1.3.1/mod.ts";
 
 const app = createApp();
+
+const [color, setColor] = useState('');
 const [colors, setColors] = useState([]);
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  setColors([...colors, colors]);
+  setColors([...colors, color]);
+  setColor('');
 }
 
 app.handle("/", async (req) => {
